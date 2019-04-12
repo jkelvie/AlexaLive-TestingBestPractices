@@ -1,0 +1,324 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "classic movie quiz",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "PEOPLE",
+              "type": "PEOPLE"
+            },
+            {
+              "name": "PLACES",
+              "type": "AMAZON.US_STATE"
+            },
+            {
+              "name": "POINTS",
+              "type": "AMAZON.DATE"
+            }
+          ],
+          "samples": [
+            "is it {PEOPLE}",
+            "I think it's {PEOPLE}",
+            "I think the answer is {PEOPLE}",
+            "the answer is {PEOPLE}",
+            "is it {PLACES}",
+            "I think it's {PLACES}",
+            "I think the answer is {PLACES}",
+            "the answer is {PLACES}",
+            "is it {POINTS}",
+            "I think it's {POINTS}",
+            "I think the answer is {POINTS}",
+            "the answer is {POINTS}"
+          ]
+        },
+        {
+          "name": "QuizIntent",
+          "slots": [
+            {
+              "name": "PLAYERS",
+              "type": "PLAYERS",
+              "samples": ["{PLAYERS}"]
+            },
+            {
+              "name": "CATEGORY",
+              "type": "CATEGORY",
+              "samples": ["{CATEGORY}"]
+            }
+          ],
+          "samples": [
+            "start a {CATEGORY} quiz with {PLAYERS} players",
+            "start a {CATEGORY} quiz",
+            "start a quiz with {PLAYERS} players",
+            "start a quiz with {PLAYERS}",
+            "start a quiz",
+            "start a quiz game",
+            "and start a quiz",
+            "and quiz me",
+            "for a quiz",
+            "a quiz"
+          ]
+        },
+        {
+          "name": "StatsIntent",
+          "slots": [],
+          "samples": [
+            "what are my overall stats",
+            "how good am I",
+            "how do I rank",
+            "what is my score",
+            "stats please",
+            "tell me my stats",
+            "what are my stats"
+          ]
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AnswerOnlyIntent",
+          "slots": [
+            {
+              "name": "PEOPLE",
+              "type": "PEOPLE"
+            },
+            {
+              "name": "PLACES",
+              "type": "AMAZON.US_STATE"
+            },
+            {
+              "name": "POINTS",
+              "type": "AMAZON.DATE"
+            }
+          ],
+          "samples": ["{POINTS}", "{PLACES}", "{PEOPLE}"]
+        }
+      ],
+      "types": [
+        {
+          "name": "PEOPLE",
+          "values": [
+            {
+              "name": {
+                "value": "lauren bacall"
+              }
+            },
+            {
+              "name": {
+                "value": "ava gardner"
+              }
+            },
+            {
+              "name": {
+                "value": "audrey hepburn"
+              }
+            },
+            {
+              "name": {
+                "value": "marilyn monroe"
+              }
+            },
+            {
+              "name": {
+                "value": "marlon brando"
+              }
+            },
+            {
+              "name": {
+                "value": "elizabeth taylor"
+              }
+            },
+            {
+              "name": {
+                "value": "Victoria Tennant"
+              }
+            },
+            {
+              "name": {
+                "value": "Tony Curtis"
+              }
+            },
+            {
+              "name": {
+                "value": "Mae West"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CATEGORY",
+          "values": [
+            {
+              "id": "1",
+              "name": {
+                "value": "points",
+                "synonyms": ["years", "times", "dates", "points in history"]
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "places",
+                "synonyms": ["film spots", "locations"]
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "people",
+                "synonyms": ["director", "actors"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PLAYERS",
+          "values": [
+            {
+              "id": "4",
+              "name": {
+                "value": "four",
+                "synonyms": ["four players"]
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "three",
+                "synonyms": ["three players"]
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "two",
+                "synonyms": ["two players"]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "single",
+                "synonyms": ["one player", "just me", "one"]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "QuizIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "PLAYERS",
+              "type": "PLAYERS",
+              "confirmationRequired": true,
+              "elicitationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.234751839726.248184646468",
+                "elicitation": "Elicit.Slot.234751839726.248184646468"
+              }
+            },
+            {
+              "name": "CATEGORY",
+              "type": "CATEGORY",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.234751839726.182662589112"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.234751839726.182662589112.234470725833"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.234751839726.182662589112",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You can answer questions about people, places, or dates. What category do you want to play?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.234751839726.182662589112.234470725833",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "I don't have that category. You can play people, places, or dates. Which one sounds good?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.234751839726.248184646468",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "How many people are playing?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.234751839726.248184646468",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{PLAYERS} players. Is that right?"
+          }
+        ]
+      }
+    ]
+  }
+}
