@@ -63,3 +63,4 @@ Archive.zip
 package-lock.json
 .DS_Store
 .eslintrc.yml
+test_output

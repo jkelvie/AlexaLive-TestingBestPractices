@@ -316,16 +316,20 @@ const QuizHandler = {
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
       (handlerInput.requestEnvelope.request.intent.name === "QuizIntent" ||
         (handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" &&
-          attributes[constants.STATE] === constants.STATES.END))
+        handlerInput.attributesManager.getSessionAttributes()[constants.STATE] === constants.STATES.END))
     );
   },
   handle(handlerInput) {
     let attributes = handlerInput.attributesManager.getSessionAttributes();
     console.log(`${attributes[constants.STATE]}, QuizIntent`);
-    attributes[constants.STATE] = constants.states.QUIZ;
+    attributes[constants.STATE] = constants.STATES.QUIZ;
 
     const players = parseInt(helpers.getSlotResolutionId(handlerInput, "PLAYERS"));
-    const category = helpers.getSlotResolution(handlerInput, "CATEGORY");
+    let category = helpers.getSlotResolution(handlerInput, "CATEGORY");
+    // If no category set, we default to 
+    if (!category) {
+      category = "people";
+    }
     let scores = [];
     let currentPlayer = 1;
     let round = 1;
@@ -337,7 +341,7 @@ const QuizHandler = {
     }
     // Set up the first question
     const quizStart = players > 1 ? "Player " + currentPlayer + "," : " ";
-    var question = questions[category.toUppercase()][round - 1].question;
+    var question = questions[category.toUpperCase()][round - 1].question;
 
     attributes[constants.SPEAK] =
       lang["QUIZSTART"].replace("%%CATEGORY%%", category).replace("%%PLAYER%%", quizStart) +
@@ -345,9 +349,10 @@ const QuizHandler = {
     attributes[constants.REPEAT] = question;
     attributes[constants.SCORES] = scores;
     attributes[constants.CATEGORY] = category;
-    attributes[constants.QUESTION] = questions[category.toUppercase()][round - 1];
+    attributes[constants.QUESTION] = questions[category.toUpperCase()][round - 1];
     attributes[constants.CURRENT] = currentPlayer;
     attributes[constants.PLAYERS] = players;
+    attributes[constants.ROUND] = round;
 
     helpers.saveUser(handlerInput, attributes, "session");
 
@@ -366,9 +371,9 @@ const QuizAnswerHandler = {
     const attributes = handlerInput.attributesManager.getSessionAttributes();
 
     return (
-      attributes[constants.STATE] === states.QUIZ &&
+      attributes[constants.STATE] === constants.STATES.QUIZ &&
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
-      rhandlerInput.requestEnvelope.request.intent.name === "AnswerIntent"
+      handlerInput.requestEnvelope.request.intent.name === "AnswerIntent"
     );
   },
   handle(handlerInput) {
@@ -392,7 +397,7 @@ function handleUserGuess(handlerInput) {
 
   // Populate the attributes from the session
   let attributes = handlerInput.attributesManager.getSessionAttributes();
-  answer = helpers.getSlotResolution(handlerInput, attributes[constants.CATEGORY].toUppercase());
+  answer = helpers.getSlotResolution(handlerInput, attributes[constants.CATEGORY].toUpperCase());
 
   // Current question being answered
   let question = attributes[constants.QUESTION].question;
@@ -410,7 +415,10 @@ function handleUserGuess(handlerInput) {
   }
 
   message = `<say-as interpret-as='interjection'>${message}! </say-as><break strength='strong'/>`;
-
+  if (answer !== correctAnswer) {
+    message = message + `. The correct answer is ${correctAnswer}`;
+  }
+  
   // Check if the game is over
   if (score >= win) {
     let gameEnd =
@@ -431,19 +439,22 @@ function handleUserGuess(handlerInput) {
       .getResponse();
   }
 
+  const category = attributes[constants.CATEGORY];
   // Otherwise keep playing til a player hits three points
   attributes[constants.CURRENT] =
     attributes[constants.CURRENT] == 3 ? attributes[constants.CURRENT] + 1 : 1;
   attributes[constants.ROUND] =
     attributes[constants.ROUND] == 3 ? 1 : (attributes[constants.ROUND] += 1);
   attributes[constants.QUESTION] =
-    questions[attributes[constants.CATEGORY].toUppercase()][round - 1];
+    questions[category.toUpperCase()][attributes[constants.ROUND] - 1];
 
+  const players = attributes[constants.PLAYERS];
   // Set up the question
   const quizStart = players > 1 ? "Player " + currentPlayer + "," : " ";
-  var question = attributes[constants.QUESTION].question;
+  question = attributes[constants.QUESTION].question;
 
   attributes[constants.SPEAK] =
+    message +
     lang["NEXTQUESTION"].replace("%%CATEGORY%%", category).replace("%%PLAYER%%", quizStart) +
     question;
   attributes[constants.REPEAT] = question;
