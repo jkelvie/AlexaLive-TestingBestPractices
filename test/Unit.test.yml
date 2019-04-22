@@ -1,0 +1,17 @@
+---
+configuration:
+  dynamo: mock
+  locales: en-US
+
+---
+- test: Run through a quiz with one player
+- LaunchRequest: Welcome to the Classic Movie Musts Quiz!
+- QuizIntent: OK.  The category is people.   here is your question. Who was it that said "Too much of a good thing is wonderful"?
+- AnswerIntent PEOPLE="Mae West": Your question is Houdini was played by who in the 1953 movie about the famous magician?
+- AnswerIntent PEOPLE="David Copperfield": The correct answer is Tony Curtis . Your question is Who did Steve Martin marry in 1986 and divorce in 1994?
+- AnswerIntent PEOPLE="Victoria Tennant": "*"
+
+---
+- test.skip: Error-handling scenario
+- LaunchRequest: Welcome to the Classic Movie Musts Quiz!
+- QuizIntent: OK.  The category is people.   here is your question. Who was it that said "Too much of a good thing is wonderful"?

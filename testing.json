@@ -2,6 +2,7 @@
     "handler": "index.js",
     "trace": false,
     "jest": {
-      "silent": true
-    }
+      "silent": false
+    },
+    "virtualDeviceToken": "alexa-46c42bd1-f6c2-4762-a866-0df57708bd1c"
   }
