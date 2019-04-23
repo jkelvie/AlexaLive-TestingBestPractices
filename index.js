@@ -322,7 +322,7 @@ const QuizHandler = {
   handle(handlerInput) {
     let attributes = handlerInput.attributesManager.getSessionAttributes();
     console.log(`${attributes[constants.STATE]}, QuizIntent`);
-    attributes[constants.STATE] = constants.states.QUIZ;
+    attributes[constants.STATE] = constants.STATES.QUIZ;
 
     const players = parseInt(helpers.getSlotResolutionId(handlerInput, "PLAYERS"));
     const category = helpers.getSlotResolution(handlerInput, "CATEGORY");
@@ -337,7 +337,7 @@ const QuizHandler = {
     }
     // Set up the first question
     const quizStart = players > 1 ? "Player " + currentPlayer + "," : " ";
-    var question = questions[category.toUppercase()][round - 1].question;
+    var question = questions[category.toUpperCase()][round - 1].question;
 
     attributes[constants.SPEAK] =
       lang["QUIZSTART"].replace("%%CATEGORY%%", category).replace("%%PLAYER%%", quizStart) +
@@ -345,7 +345,7 @@ const QuizHandler = {
     attributes[constants.REPEAT] = question;
     attributes[constants.SCORES] = scores;
     attributes[constants.CATEGORY] = category;
-    attributes[constants.QUESTION] = questions[category.toUppercase()][round - 1];
+    attributes[constants.QUESTION] = questions[category.toUpperCase()][round - 1];
     attributes[constants.CURRENT] = currentPlayer;
     attributes[constants.PLAYERS] = players;
 
@@ -366,7 +366,7 @@ const QuizAnswerHandler = {
     const attributes = handlerInput.attributesManager.getSessionAttributes();
 
     return (
-      attributes[constants.STATE] === states.QUIZ &&
+      attributes[constants.STATE] === constants.STATES.QUIZ &&
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
       rhandlerInput.requestEnvelope.request.intent.name === "AnswerIntent"
     );
@@ -392,7 +392,7 @@ function handleUserGuess(handlerInput) {
 
   // Populate the attributes from the session
   let attributes = handlerInput.attributesManager.getSessionAttributes();
-  answer = helpers.getSlotResolution(handlerInput, attributes[constants.CATEGORY].toUppercase());
+  answer = helpers.getSlotResolution(handlerInput, attributes[constants.CATEGORY].toUpperCase());
 
   // Current question being answered
   let question = attributes[constants.QUESTION].question;
@@ -437,11 +437,11 @@ function handleUserGuess(handlerInput) {
   attributes[constants.ROUND] =
     attributes[constants.ROUND] == 3 ? 1 : (attributes[constants.ROUND] += 1);
   attributes[constants.QUESTION] =
-    questions[attributes[constants.CATEGORY].toUppercase()][round - 1];
+    questions[attributes[constants.CATEGORY].toUpperCase()][round - 1];
 
   // Set up the question
   const quizStart = players > 1 ? "Player " + currentPlayer + "," : " ";
-  var question = attributes[constants.QUESTION].question;
+  question = attributes[constants.QUESTION].question;
 
   attributes[constants.SPEAK] =
     lang["NEXTQUESTION"].replace("%%CATEGORY%%", category).replace("%%PLAYER%%", quizStart) +

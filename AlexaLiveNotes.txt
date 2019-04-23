@@ -21,6 +21,6 @@
     "handler": "index.js",
     "trace": false,
     "jest": {
-      "silent": true
+      "silent": false
     }
   }
