@@ -5,9 +5,9 @@ configuration:
 
 ---
 - test: Run through a quiz with one player
-- open classic movie musts: Welcome back to the Classic Movie Must Quiz
+- open classic movie quiz: Welcome back to the Classic Movie Must Quiz
 - start a game: how many people are playing
 - one: 1 players is that right
 - yes: you can answer questions about people places or dates what category do you want to play
 - people: here is your question who was it that said "Too much of a good thing is wonderful"?
-- is it Mae West: Your question is Houdini was played by who in the 1953 movie about the famous magician?
+- Mae West: Your question is Houdini was played by who in the 1953 movie about the famous magician?
