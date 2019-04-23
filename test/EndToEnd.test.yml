@@ -1,6 +1,6 @@
 ---
 configuration:
-  locales: en-US
+  locale: en-US
   type: e2e
 
 ---
