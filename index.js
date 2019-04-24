@@ -326,6 +326,7 @@ const QuizHandler = {
 
     const players = parseInt(helpers.getSlotResolutionId(handlerInput, "PLAYERS"));
     const category = helpers.getSlotResolution(handlerInput, "CATEGORY");
+    
     let scores = [];
     let currentPlayer = 1;
     let round = 1;
@@ -368,7 +369,7 @@ const QuizAnswerHandler = {
     return (
       attributes[constants.STATE] === constants.STATES.QUIZ &&
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
-      rhandlerInput.requestEnvelope.request.intent.name === "AnswerIntent"
+      handlerInput.requestEnvelope.request.intent.name === "AnswerIntent"
     );
   },
   handle(handlerInput) {

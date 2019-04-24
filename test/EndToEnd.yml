@@ -1,0 +1,21 @@
+---
+configuration:
+  locale: en-US
+
+---
+- test: Full skill test
+- open classic movie musts: Welcome back to the Classic Movie Must Quiz
+- start a game: how many people are playing
+- one: 1 players is that right
+- yes: you can answer questions about people places or dates what category do you want to play
+- people: okay the category is people here is your question who was it that said too much of a good thing is wonderful
+- is it Mae West: Your question is Houdini was played by who in the 1953 movie about the famous magician?
+
+---
+- test.skip: Full skill test
+- open classic movie musts: Welcome back to the Classic Movie Must Quiz
+- start a game: how many people are playing
+- one: 1 players is that right
+- yes: you can answer questions about people places or dates what category do you want to play
+- people: okay the category is people here is your question who was it that said too much of a good thing is wonderful
+- Mae West: Your question is Houdini was played by who in the 1953 movie about the famous magician?

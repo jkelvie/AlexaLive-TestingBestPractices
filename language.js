@@ -1,5 +1,5 @@
 'use strict';
-const SKILL_NAME = 'Classic Movie Quiz';
+const SKILL_NAME = 'Classic Movie Musts Quiz';
 // const SKILL_NAME_DE = 'U.S. Universitätsfinder';
 
 module.exports = Object.freeze({
