@@ -88,7 +88,7 @@ const LaunchRequestHandler = {
     } else {
       attributes[constants.SPEAK] = lang["WELCOME_BACK"];
     }
-    attributes[constants.STATE] = constants.STATES.START;
+    attributes[constants.STATE] = constants.states.START;
     attributes[constants.REPEAT] = lang["MAIN_MENU"];
     attributes[constants.SPEAK] = attributes[constants.SPEAK] + attributes[constants.REPEAT];
     helpers.saveUser(handlerInput, attributes, "session");
