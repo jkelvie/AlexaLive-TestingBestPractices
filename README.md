@@ -5,6 +5,9 @@ https://developer.amazon.com/alexa/alexa-live
 
 We will cover best practices for testing Alexa skills!
 
+The slides from our presentation are available here:
+https://drive.google.com/open?id=1jmWDMn_OZKshDDeoPHbJif4pti31ey5Z
+
 # Topics Covered
 - Unit Testing
 - End-to-end Testing
@@ -12,5 +15,6 @@ We will cover best practices for testing Alexa skills!
 - Usability Performance Testing
 
 # Get In Touch
-https://twitter.com/jpkbst
-https://twitter.com/sharpstef
+* [jpkbst](https://twitter.com/jpkbst)
+* [sharpstef](https://twitter.com/sharpstef)
+* [Bespoken](https://gitter.im/bespoken)
