@@ -20,6 +20,9 @@ https://drive.google.com/open?id=1jmWDMn_OZKshDDeoPHbJif4pti31ey5Z
 - Continuous Testing
 - Usability Performance Testing
 
+You can see the completed version of the project after we added tests on this branch:  
+https://github.com/jkelvie/AlexaLive-TestingBestPractices/tree/AfterTests
+
 # Get In Touch
 * John Kelvie - [Twitter](https://twitter.com/jpkbst)
 * Stefania Sharp - [Twitter](https://twitter.com/sharpstef)
