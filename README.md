@@ -24,6 +24,6 @@ You can see the completed version of the project after we added tests on this br
 https://github.com/jkelvie/AlexaLive-TestingBestPractices/tree/AfterTests
 
 # Get In Touch
-* John Kelvie - [Twitter](https://twitter.com/jpkbst)
 * Stefania Sharp - [Twitter](https://twitter.com/sharpstef)
+* John Kelvie - [Twitter](https://twitter.com/jpkbst)
 * Bespoken - [Website](https://bespoken.io) - [Gitter(Chat)](https://gitter.im/bespoken/bst) - [Docs](https://read.bespoken.io)
