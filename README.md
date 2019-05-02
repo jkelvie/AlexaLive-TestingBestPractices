@@ -1,15 +1,13 @@
 <p align="center">
   <a href="https://developer.amazon.com/alexa/alexa-live">
-    <img alt="Alexa Live" src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/hero/AlexaLiveherofeatureL1._CB466740301_.png" width="546">
+    <img alt="Alexa Live" src="https://raw.githubusercontent.com/jkelvie/AlexaLive-TestingBestPractices/BeforeTests/AlexaLiveSplash.png" width="100%">
   </a>
 </p>
 
 <p align="center">
-  Testing Best Practices<br>
+  <b>Testing Best Practices</b><br>
   Welcome to our session for Alexa Live!
 </p>
-
-https://developer.amazon.com/alexa/alexa-live
 
 We will cover best practices for testing Alexa skills!
 
