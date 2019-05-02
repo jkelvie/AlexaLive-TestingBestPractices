@@ -23,4 +23,4 @@ https://drive.google.com/open?id=1jmWDMn_OZKshDDeoPHbJif4pti31ey5Z
 # Get In Touch
 * John Kelvie - [Twitter](https://twitter.com/jpkbst)
 * Stefania Sharp - [Twitter](https://twitter.com/sharpstef)
-* Bespoken - [Website](https://bespoken.io)  [Gitter(Chat)](https://gitter.im/bespoken/bst)
+* Bespoken - [Website](https://bespoken.io) - [Gitter(Chat)](https://gitter.im/bespoken/bst) - [Docs](https://read.bespoken.io)
